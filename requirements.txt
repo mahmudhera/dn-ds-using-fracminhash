@@ -1,0 +1,4 @@
+scipy
+mpmath
+biopython
+mmh3
