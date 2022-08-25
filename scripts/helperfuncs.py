@@ -66,7 +66,7 @@ def mutated_bits_to_containment(mutated, k):
 def translate_dna_to_aa(genome_sequence):
     dna_seq = Seq(genome_sequence)
     aa_seq = dna_seq.translate()
-    return aa_seq
+    return str(aa_seq)
 
 # given containment_index, return mutation rate
 def containment_to_mut_rate(containment, k):
