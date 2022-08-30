@@ -92,6 +92,9 @@ def sequences_to_containment_perfect(seq1, seq2, k):
     #mut_rate = containment_to_mut_rate(containment_index, k)
     return containment_index
 
+def sequences_to_mut_rate_perfect(seq1, seq2, k):
+    containment = sequences_to_containment_perfect(seq1, seq2, k)
+    return 1.0 - containment**(1.0/k)
 
 # given two sequences, determine the mutation rate
 def sequences_to_containment_using_fmh(seq1, seq2, k, scale_factor):
