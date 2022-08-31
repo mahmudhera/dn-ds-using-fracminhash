@@ -2,6 +2,7 @@ from scipy.stats import norm as scipy_norm
 from Bio.Seq import Seq
 import mmh3
 from fracminhash import FracMinHash
+import random
 
 try:
     from mpmath import mp as mpmath,mpf
@@ -101,3 +102,20 @@ def sequences_to_containment_using_fmh(seq1, seq2, k, scale_factor):
     fmh1 = sequence_to_fmh_sketch(seq1, k, scale_factor)
     fmh2 = sequence_to_fmh_sketch(seq2, k, scale_factor)
     return fmh1.get_containment(fmh2)
+
+
+def mutate_string(in_str, mut_rate):
+    out_str = list(in_str)
+    other_bases = {
+        'A': ['T', 'C', 'G'],
+        'C': ['T', 'A', 'G'],
+        'G': ['T', 'C', 'A'],
+        'T': ['A', 'C', 'G']
+    }
+    for i in range(len(out_str)):
+        if random.uniform(0,1) < mut_rate:
+            out_str[i] = random.choice( other_bases[out_str[i]] )
+        else:
+            continue
+    out_str = "".join(out_str)
+    return out_str
