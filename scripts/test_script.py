@@ -30,7 +30,7 @@ if __name__ == "__main__":
     mut_rate = 0.01
     seed = 0
     k = 7
-    scale_factor = 1.0
+    scale_factor = 0.1
     random.seed(seed)
 
     correct_dnds_values = []
@@ -49,11 +49,11 @@ if __name__ == "__main__":
         estimated_dnds_values_fmh.append(approx_dnds_using_fmh)
 
     plt.scatter(correct_dnds_values, estimated_dnds_values_whole_seq, label='Using whole seq')
-    #plt.scatter(correct_dnds_values, estimated_dnds_values_fmh, label='Using FMH with scalef = ' + str(scale_factor))
+    plt.scatter(correct_dnds_values, estimated_dnds_values_fmh, label='Using FMH with scalef = ' + str(scale_factor))
     tmp = [min(correct_dnds_values), max(correct_dnds_values)]
     plt.plot(tmp, tmp, linestyle='--')
     #plt.ylim(0,100)
     plt.xlabel('Correct dnds value')
     plt.ylabel('Estimated dnds value')
     plt.legend()
-    plt.savefig('approx_vs_real_dnds.pdf')
+    plt.savefig('approx_vs_real_dnds_test.pdf')
