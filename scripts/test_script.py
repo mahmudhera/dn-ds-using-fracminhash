@@ -52,7 +52,7 @@ if __name__ == "__main__":
     #plt.scatter(correct_dnds_values, estimated_dnds_values_fmh, label='Using FMH with scalef = ' + str(scale_factor))
     tmp = [min(correct_dnds_values), max(correct_dnds_values)]
     plt.plot(tmp, tmp, linestyle='--')
-    plt.ylim(0,100)
+    #plt.ylim(0,100)
     plt.xlabel('Correct dnds value')
     plt.ylabel('Estimated dnds value')
     plt.legend()
