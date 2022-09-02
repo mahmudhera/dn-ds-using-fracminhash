@@ -103,6 +103,9 @@ def sequences_to_containment_using_fmh(seq1, seq2, k, scale_factor):
     fmh2 = sequence_to_fmh_sketch(seq2, k, scale_factor)
     return fmh1.get_containment(fmh2)
 
+def sequences_to_mutrate_using_fmh(seq1, seq2, k, scale_factor):
+    c = sequences_to_containment_using_fmh(seq1, seq2, k, scale_factor)
+    return 1.0 - c ** (1.0 / k)
 
 def mutate_string(in_str, mut_rate):
     out_str = list(in_str)

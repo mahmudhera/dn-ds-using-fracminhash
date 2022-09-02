@@ -10,7 +10,7 @@ def determine_approx_dnds_no_fmh(dna_seq1, dna_seq2, k):
 
 
 # given two related dna sequences, determine dn/ds
-def determine_approx_dnds(dna_seq1, dna_seq2, k, scale_factor):
+def determine_approx_dnds_using_fmh(dna_seq1, dna_seq2, k, scale_factor):
     aa_k = k
     nt_k = k
     nt_containment = sequences_to_containment_using_fmh(dna_seq1, dna_seq2, nt_k, scale_factor)
