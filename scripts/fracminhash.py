@@ -23,7 +23,7 @@ class FracMinHash:
         '''
         if hash_value <= self.H * self.scale_factor:
             self.hash_set.add(hash_value)
-
+        
     def add_values(self, hash_values):
         '''
         Add multiple hash values to the sketch.

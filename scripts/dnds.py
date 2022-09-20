@@ -1,11 +1,12 @@
 from helperfuncs import *
 
 def determine_approx_dnds_no_fmh(dna_seq1, dna_seq2, k):
-    nt_containment = sequences_to_containment_perfect(dna_seq1, dna_seq2, k)
+    nt_containment = sequences_to_containment_perfect(dna_seq1, dna_seq2, 3*k)
     T = translate_dna_to_aa
     aa_containemnt = sequences_to_containment_perfect( T(dna_seq1), T(dna_seq2), k )
-    p_nt = containment_to_mut_rate(nt_containment, k)
+    p_nt = containment_to_mut_rate(nt_containment, 3*k)
     p_aa = containment_to_mut_rate(aa_containemnt, k)
+
     return p_aa/(1.0 - p_aa - (1 - p_nt)**3)
 
 
@@ -18,6 +19,7 @@ def determine_approx_dnds_using_fmh(dna_seq1, dna_seq2, k, scale_factor):
     #print(nt_containment, aa_containemnt)
     p_nt = containment_to_mut_rate(nt_containment, nt_k)
     p_aa = containment_to_mut_rate(aa_containemnt, aa_k)
+
     try:
         dnds = p_aa / ( 1.0 - p_aa - (1.0 - p_nt)**3 )
     except:
