@@ -31,7 +31,7 @@ if __name__ == "__main__":
             estimated_dnds_values_fmh.append(approx_dnds_using_fmh)
 
         plt.clf()
-        plt.scatter(correct_dnds_values, estimated_dnds_values_whole_seq, label='Using whole seq', alpha=0.9)
+        #plt.scatter(correct_dnds_values, estimated_dnds_values_whole_seq, label='Using whole seq', alpha=0.9)
         plt.scatter(correct_dnds_values, estimated_dnds_values_fmh, label='Using FMH with scalef = ' + str(scale_factor), alpha=0.5)
         tmp = [min(correct_dnds_values), max(correct_dnds_values)]
         plt.plot(tmp, tmp, linestyle='--')
